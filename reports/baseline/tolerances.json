@@ -1,0 +1,17 @@
+{
+  "date_fixation": "2026-11-20",
+  "version_reference": "1.0.0",
+  "justification": "Jeu de test versionné : 4 000 demandes, 554 défauts. Erreur-type du rappel ≈ 0,021 ; une baisse > 0,03 sur le MÊME jeu de test (comparaison appariée) dépasse la variation attendue d'un simple réentraînement et doit être investiguée. Les planchers sont les niveaux sous lesquels le modèle n'apporte plus d'aide utile à l'agent de crédit.",
+  "metriques": {
+    "rappel":    {"baisse_max": 0.03, "plancher": 0.40},
+    "f1":        {"baisse_max": 0.03, "plancher": 0.35},
+    "roc_auc":   {"baisse_max": 0.02, "plancher": 0.70},
+    "pr_auc":    {"baisse_max": 0.03, "plancher": 0.33},
+    "precision": {"baisse_max": 0.05, "plancher": 0.28}
+  },
+  "probabilites": {
+    "meme_modele":      {"ecart_max": 1e-9, "ecart_moyen_max": 1e-9},
+    "nouvelle_version": {"ecart_max": 0.10, "ecart_moyen_max": 0.02}
+  },
+  "sauvegarde_rechargement": {"ecart_max": 1e-12}
+}

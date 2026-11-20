@@ -1,0 +1,18 @@
+# Dépendances d'exécution (versions figées : le modèle joblib est lié à scikit-learn 1.9.1)
+fastapi==0.165.0
+starlette==1.7.0
+pydantic==2.13.5
+uvicorn==0.54.0
+scikit-learn==1.9.1
+numpy==2.5.3
+scipy==1.18.1
+pandas==3.0.5
+joblib==1.6.0
+
+# Tests, qualité et performance
+pytest==9.1.1
+pytest-cov==7.1.0
+hypothesis==6.170.17
+httpx==0.28.1
+ruff==0.17.6
+locust==2.47.0

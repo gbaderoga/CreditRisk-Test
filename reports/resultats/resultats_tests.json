@@ -1,0 +1,3026 @@
+{
+  "tests": [
+    {
+      "test": "tests/test_api.py::test_s01_requete_valide",
+      "exigences": [
+        "EX04",
+        "EX20"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0212,
+      "description": "S01 Requête valide : 200, probabilité dans [0, 1] et contrat de réponse complet."
+    },
+    {
+      "test": "tests/test_api.py::test_s02_champ_obligatoire_absent[age]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0036,
+      "description": "S02 Requête sans champ obligatoire : 422 DONNEES_INVALIDES sur le champ absent."
+    },
+    {
+      "test": "tests/test_api.py::test_s02_champ_obligatoire_absent[revenu_mensuel]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "S02 Requête sans champ obligatoire : 422 DONNEES_INVALIDES sur le champ absent."
+    },
+    {
+      "test": "tests/test_api.py::test_s02_champ_obligatoire_absent[montant_credit]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.005,
+      "description": "S02 Requête sans champ obligatoire : 422 DONNEES_INVALIDES sur le champ absent."
+    },
+    {
+      "test": "tests/test_api.py::test_s02_champ_obligatoire_absent[duree_mois]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "S02 Requête sans champ obligatoire : 422 DONNEES_INVALIDES sur le champ absent."
+    },
+    {
+      "test": "tests/test_api.py::test_s02_champ_obligatoire_absent[anciennete_activite]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0036,
+      "description": "S02 Requête sans champ obligatoire : 422 DONNEES_INVALIDES sur le champ absent."
+    },
+    {
+      "test": "tests/test_api.py::test_s03_age_negatif",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "S03 Âge négatif : 422 sur le champ age."
+    },
+    {
+      "test": "tests/test_api.py::test_s04_revenu_texte[250000]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "S04 Revenu sous forme de texte (même numérique) : 422 sur revenu_mensuel."
+    },
+    {
+      "test": "tests/test_api.py::test_s04_revenu_texte[deux cent mille]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "S04 Revenu sous forme de texte (même numérique) : 422 sur revenu_mensuel."
+    },
+    {
+      "test": "tests/test_api.py::test_s04_revenu_texte[]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "S04 Revenu sous forme de texte (même numérique) : 422 sur revenu_mensuel."
+    },
+    {
+      "test": "tests/test_api.py::test_s05_montant_nul_ou_negatif[0]",
+      "exigences": [
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0036,
+      "description": "S05 Montant nul ou négatif : 422 sur montant_credit."
+    },
+    {
+      "test": "tests/test_api.py::test_s05_montant_nul_ou_negatif[-1000000]",
+      "exigences": [
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "S05 Montant nul ou négatif : 422 sur montant_credit."
+    },
+    {
+      "test": "tests/test_api.py::test_s06_duree_non_entiere[12.5]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "S06 Durée non entière (12.5, 12.0, \"12\") : 422 sur duree_mois."
+    },
+    {
+      "test": "tests/test_api.py::test_s06_duree_non_entiere[12.0]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0034,
+      "description": "S06 Durée non entière (12.5, 12.0, \"12\") : 422 sur duree_mois."
+    },
+    {
+      "test": "tests/test_api.py::test_s06_duree_non_entiere[12]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0028,
+      "description": "S06 Durée non entière (12.5, 12.0, \"12\") : 422 sur duree_mois."
+    },
+    {
+      "test": "tests/test_api.py::test_s07_champ_supplementaire",
+      "exigences": [
+        "EX09"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0041,
+      "description": "S07 Champ non autorisé (ex. variable sensible) : 422 extra_forbidden."
+    },
+    {
+      "test": "tests/test_api.py::test_s08_valeurs_au_dela_des_plafonds_rejetees[montant_credit-1000000000000000.0]",
+      "exigences": [
+        "EX02",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "S08a Valeurs extrêmement élevées au-delà des plafonds : 422 (invalide)."
+    },
+    {
+      "test": "tests/test_api.py::test_s08_valeurs_au_dela_des_plafonds_rejetees[revenu_mensuel-1000000000000000.0]",
+      "exigences": [
+        "EX02",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "S08a Valeurs extrêmement élevées au-delà des plafonds : 422 (invalide)."
+    },
+    {
+      "test": "tests/test_api.py::test_s08_valeurs_au_dela_des_plafonds_rejetees[age-1000000000000]",
+      "exigences": [
+        "EX02",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "S08a Valeurs extrêmement élevées au-delà des plafonds : 422 (invalide)."
+    },
+    {
+      "test": "tests/test_api.py::test_s08_valeurs_au_dela_des_plafonds_rejetees[duree_mois-1000000000]",
+      "exigences": [
+        "EX02",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "S08a Valeurs extrêmement élevées au-delà des plafonds : 422 (invalide)."
+    },
+    {
+      "test": "tests/test_api.py::test_s08_valeurs_tres_elevees_mais_valides_signalees",
+      "exigences": [
+        "EX04",
+        "EX14"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0087,
+      "description": "S08b Valeurs très élevées mais sous les plafonds : 200 + alerte, pas de rejet."
+    },
+    {
+      "test": "tests/test_api.py::test_s09_predict_modele_indisponible",
+      "exigences": [
+        "EX05"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "S09 Modèle non chargé : POST /predict renvoie 503 MODELE_INDISPONIBLE."
+    },
+    {
+      "test": "tests/test_api.py::test_s09_health_modele_indisponible",
+      "exigences": [
+        "EX05"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "S09 Modèle non chargé : GET /health renvoie 503 et modele_charge=false."
+    },
+    {
+      "test": "tests/test_api.py::test_s09_model_info_modele_indisponible",
+      "exigences": [
+        "EX05"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0033,
+      "description": "S09 Modèle non chargé : GET /model-info renvoie 503."
+    },
+    {
+      "test": "tests/test_api.py::test_s09_validation_avant_disponibilite",
+      "exigences": [
+        "EX05",
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "S09b Requête invalide + modèle indisponible : la validation (422) prime."
+    },
+    {
+      "test": "tests/test_api.py::test_s10_json_mal_forme[{\"age\": 35,]",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0028,
+      "description": "S10 JSON syntaxiquement invalide : 400 REQUETE_MAL_FORMEE."
+    },
+    {
+      "test": "tests/test_api.py::test_s10_json_mal_forme[{age: 35}]",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "S10 JSON syntaxiquement invalide : 400 REQUETE_MAL_FORMEE."
+    },
+    {
+      "test": "tests/test_api.py::test_s10_json_mal_forme[nimporte quoi]",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0023,
+      "description": "S10 JSON syntaxiquement invalide : 400 REQUETE_MAL_FORMEE."
+    },
+    {
+      "test": "tests/test_api.py::test_s10_json_mal_forme[{\"age\": 35}}]",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0024,
+      "description": "S10 JSON syntaxiquement invalide : 400 REQUETE_MAL_FORMEE."
+    },
+    {
+      "test": "tests/test_api.py::test_s10_corps_absent",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "S10 Corps vide : 400 REQUETE_MAL_FORMEE."
+    },
+    {
+      "test": "tests/test_api.py::test_s10_json_valide_mais_pas_un_objet[[]]",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "S10 JSON valide qui n'est pas un objet : 422 DONNEES_INVALIDES."
+    },
+    {
+      "test": "tests/test_api.py::test_s10_json_valide_mais_pas_un_objet[42]",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "S10 JSON valide qui n'est pas un objet : 422 DONNEES_INVALIDES."
+    },
+    {
+      "test": "tests/test_api.py::test_s10_json_valide_mais_pas_un_objet[\"texte\"]",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "S10 JSON valide qui n'est pas un objet : 422 DONNEES_INVALIDES."
+    },
+    {
+      "test": "tests/test_api.py::test_s10_json_valide_mais_pas_un_objet[null]",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "S10 JSON valide qui n'est pas un objet : 422 DONNEES_INVALIDES."
+    },
+    {
+      "test": "tests/test_api.py::test_s10_mauvais_content_type",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0014,
+      "description": "S10 Content-Type non JSON : 415 TYPE_CONTENU_NON_SUPPORTE."
+    },
+    {
+      "test": "tests/test_api.py::test_s10_corps_trop_volumineux",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.002,
+      "description": "S10 Corps > 10 ko : 413 REQUETE_TROP_VOLUMINEUSE (protection simple)."
+    },
+    {
+      "test": "tests/test_api.py::test_methode_non_autorisee",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.002,
+      "description": "TA01 GET /predict n'est pas autorisé : 405."
+    },
+    {
+      "test": "tests/test_api.py::test_health_ok",
+      "exigences": [
+        "EX05"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "TA02 Service disponible : GET /health renvoie 200 et la version chargée."
+    },
+    {
+      "test": "tests/test_api.py::test_model_info_contrat",
+      "exigences": [
+        "EX16"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "TA03 GET /model-info expose version, empreinte, variables, seuils et métriques."
+    },
+    {
+      "test": "tests/test_api.py::test_niveau_de_risque_selon_seuils[0.0-faible]",
+      "exigences": [
+        "EX20"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TA04 Le niveau de risque respecte les seuils documentés (bornes incluses)."
+    },
+    {
+      "test": "tests/test_api.py::test_niveau_de_risque_selon_seuils[0.1999-faible]",
+      "exigences": [
+        "EX20"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TA04 Le niveau de risque respecte les seuils documentés (bornes incluses)."
+    },
+    {
+      "test": "tests/test_api.py::test_niveau_de_risque_selon_seuils[0.2-modere]",
+      "exigences": [
+        "EX20"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TA04 Le niveau de risque respecte les seuils documentés (bornes incluses)."
+    },
+    {
+      "test": "tests/test_api.py::test_niveau_de_risque_selon_seuils[0.4999-modere]",
+      "exigences": [
+        "EX20"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TA04 Le niveau de risque respecte les seuils documentés (bornes incluses)."
+    },
+    {
+      "test": "tests/test_api.py::test_niveau_de_risque_selon_seuils[0.5-eleve]",
+      "exigences": [
+        "EX20"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TA04 Le niveau de risque respecte les seuils documentés (bornes incluses)."
+    },
+    {
+      "test": "tests/test_api.py::test_niveau_de_risque_selon_seuils[1.0-eleve]",
+      "exigences": [
+        "EX20"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TA04 Le niveau de risque respecte les seuils documentés (bornes incluses)."
+    },
+    {
+      "test": "tests/test_api.py::test_risque_eleve_exige_analyse",
+      "exigences": [
+        "EX20"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0066,
+      "description": "TA05 Une demande à risque élevé exige une analyse complémentaire."
+    },
+    {
+      "test": "tests/test_api.py::test_content_length_invalide",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0018,
+      "description": "TA06 En-tête Content-Length non numérique : 400 REQUETE_MAL_FORMEE."
+    },
+    {
+      "test": "tests/test_echec_volontaire.py::test_echec_volontaire",
+      "exigences": [
+        "EX22"
+      ],
+      "resultat": "ignore",
+      "duree_s": 0.0004,
+      "description": "TCI01 Échec volontaire : ce test DOIT rendre le workflow rouge lorsqu'il est activé."
+    },
+    {
+      "test": "tests/test_integration.py::test_pipeline_bout_en_bout",
+      "exigences": [
+        "EX04",
+        "EX16",
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0096,
+      "description": "TI01 Requête valide : chaque composant est appelé dans l'ordre et la sortie est exacte."
+    },
+    {
+      "test": "tests/test_integration.py::test_metadonnees_coherentes_avec_le_modele_charge",
+      "exigences": [
+        "EX16"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0113,
+      "description": "TI02 Version et empreinte cohérentes entre fichier, /model-info, /health et /predict."
+    },
+    {
+      "test": "tests/test_integration.py::test_prediction_par_lot_identique_a_l_unitaire",
+      "exigences": [
+        "EX04",
+        "EX15"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0336,
+      "description": "TI03 Prédire 50 demandes en lot ou une par une donne les mêmes probabilités."
+    },
+    {
+      "test": "tests/test_integration.py::test_fichier_modele_absent",
+      "exigences": [
+        "EX05",
+        "EX17"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.001,
+      "description": "TI04 Fichier modèle absent : ErreurModeleIndisponible avec message explicite."
+    },
+    {
+      "test": "tests/test_integration.py::test_metadonnees_absentes",
+      "exigences": [
+        "EX05",
+        "EX17"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0005,
+      "description": "TI05 Métadonnées absentes : le modèle n'est pas chargé."
+    },
+    {
+      "test": "tests/test_integration.py::test_modele_altere_refuse_avant_deserialisation",
+      "exigences": [
+        "EX17"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0005,
+      "description": "TI06 Fichier modifié (SHA-256 différent) : refusé SANS appeler joblib.load."
+    },
+    {
+      "test": "tests/test_integration.py::test_modele_corrompu",
+      "exigences": [
+        "EX05",
+        "EX17"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TI07 Fichier illisible mais empreinte cohérente : erreur contrôlée, pas d'exception brute."
+    },
+    {
+      "test": "tests/test_integration.py::test_format_de_modele_inattendu[contenu0]",
+      "exigences": [
+        "EX05",
+        "EX17"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0011,
+      "description": "TI08 Objet désérialisé au mauvais format : refusé."
+    },
+    {
+      "test": "tests/test_integration.py::test_format_de_modele_inattendu[chaine]",
+      "exigences": [
+        "EX05",
+        "EX17"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0008,
+      "description": "TI08 Objet désérialisé au mauvais format : refusé."
+    },
+    {
+      "test": "tests/test_integration.py::test_variables_du_modele_incompatibles_avec_le_code",
+      "exigences": [
+        "EX05",
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "TI09 Modèle entraîné avec d'autres variables que le code : refusé au chargement."
+    },
+    {
+      "test": "tests/test_integration.py::test_api_demarre_sans_modele_et_signale_503",
+      "exigences": [
+        "EX05"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0113,
+      "description": "TI10 Au démarrage avec un modèle absent, l'API répond (503) au lieu de planter."
+    },
+    {
+      "test": "tests/test_integration.py::test_modele_decharge_en_cours_de_fonctionnement",
+      "exigences": [
+        "EX05"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0086,
+      "description": "TI11 Modèle déchargé à chaud : 503, puis 200 après rechargement."
+    },
+    {
+      "test": "tests/test_integration.py::test_erreur_de_pretraitement",
+      "exigences": [
+        "EX12",
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0038,
+      "description": "TI12 Le prétraitement échoue : 500 ERREUR_INTERNE avec identifiant d'incident."
+    },
+    {
+      "test": "tests/test_integration.py::test_variable_attendue_absente_apres_pretraitement",
+      "exigences": [
+        "EX12",
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0036,
+      "description": "TI13 Une variable disparaît entre validation et modèle : erreur 500 contrôlée."
+    },
+    {
+      "test": "tests/test_integration.py::test_dimensions_incompatibles[forme0]",
+      "exigences": [
+        "EX12",
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0045,
+      "description": "TI14 Dimensions différentes de celles attendues par le modèle : 500 contrôlée."
+    },
+    {
+      "test": "tests/test_integration.py::test_dimensions_incompatibles[forme1]",
+      "exigences": [
+        "EX12",
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "TI14 Dimensions différentes de celles attendues par le modèle : 500 contrôlée."
+    },
+    {
+      "test": "tests/test_integration.py::test_dimensions_incompatibles[forme2]",
+      "exigences": [
+        "EX12",
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0038,
+      "description": "TI14 Dimensions différentes de celles attendues par le modèle : 500 contrôlée."
+    },
+    {
+      "test": "tests/test_integration.py::test_dimensions_incompatibles_niveau_service",
+      "exigences": [
+        "EX12"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TI15 Le service refuse explicitement une matrice de mauvaise largeur."
+    },
+    {
+      "test": "tests/test_integration.py::test_exception_interne_du_modele",
+      "exigences": [
+        "EX12"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "TI16 Le modèle lève une exception : 500 sans message, ni type, ni chemin."
+    },
+    {
+      "test": "tests/test_integration.py::test_probabilite_aberrante_bloquee[sortie0]",
+      "exigences": [
+        "EX04",
+        "EX12"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0048,
+      "description": "TI17 Une sortie du modèle hors [0, 1] ou non finie n'est jamais renvoyée au client."
+    },
+    {
+      "test": "tests/test_integration.py::test_probabilite_aberrante_bloquee[sortie1]",
+      "exigences": [
+        "EX04",
+        "EX12"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0037,
+      "description": "TI17 Une sortie du modèle hors [0, 1] ou non finie n'est jamais renvoyée au client."
+    },
+    {
+      "test": "tests/test_integration.py::test_probabilite_aberrante_bloquee[sortie2]",
+      "exigences": [
+        "EX04",
+        "EX12"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0034,
+      "description": "TI17 Une sortie du modèle hors [0, 1] ou non finie n'est jamais renvoyée au client."
+    },
+    {
+      "test": "tests/test_integration.py::test_probabilite_aberrante_bloquee[sortie3]",
+      "exigences": [
+        "EX04",
+        "EX12"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0033,
+      "description": "TI17 Une sortie du modèle hors [0, 1] ou non finie n'est jamais renvoyée au client."
+    },
+    {
+      "test": "tests/test_integration.py::test_erreur_imprevue_attrapee_par_le_gestionnaire_global",
+      "exigences": [
+        "EX12"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0116,
+      "description": "TI18 Exception non prévue (ZeroDivisionError) : 500 générique, pas de trace."
+    },
+    {
+      "test": "tests/test_performance.py::test_latence_p95_api",
+      "exigences": [
+        "EX18"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.8941,
+      "description": "TPF01 P95 de POST /predict (client de test, 200 appels) ≤ 100 ms."
+    },
+    {
+      "test": "tests/test_performance.py::test_latence_p95_inference",
+      "exigences": [
+        "EX18"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.1355,
+      "description": "TPF02 P95 prétraitement + inférence d'une demande ≤ 10 ms."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_variables_derivees_calculees_exactement",
+      "exigences": [
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0006,
+      "description": "TP01 Les 6 variables dérivées ont les valeurs attendues (calcul à la main)."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_objet_valide_et_dictionnaire_donnent_le_meme_resultat",
+      "exigences": [
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TP02 Un DemandeCredit et le dict équivalent produisent le même vecteur."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_dimensions_de_sortie",
+      "exigences": [
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TP03 n demandes donnent une matrice (n, 6) de flottants finis."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_variable_absente",
+      "exigences": [
+        "EX06",
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0012,
+      "description": "TP04 Une variable absente lève ErreurPretraitement (pas KeyError)."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_division_ou_log_impossible[revenu_mensuel]",
+      "exigences": [
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TP05 Revenu, montant ou durée nuls (non validés) : erreur contrôlée, pas de crash."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_division_ou_log_impossible[montant_credit]",
+      "exigences": [
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TP05 Revenu, montant ou durée nuls (non validés) : erreur contrôlée, pas de crash."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_division_ou_log_impossible[duree_mois]",
+      "exigences": [
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0001,
+      "description": "TP05 Revenu, montant ou durée nuls (non validés) : erreur contrôlée, pas de crash."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_valeur_non_numerique",
+      "exigences": [
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0007,
+      "description": "TP06 Une valeur non convertible lève ErreurPretraitement."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_valeur_non_finie_produite",
+      "exigences": [
+        "EX10",
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0004,
+      "description": "TP07 Une valeur infinie qui aurait échappé à la validation est bloquée."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_entrees_non_prises_en_charge[entree0]",
+      "exigences": [
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TP08 Liste vide ou éléments de type inattendu : ErreurPretraitement."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_entrees_non_prises_en_charge[entree1]",
+      "exigences": [
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TP08 Liste vide ou éléments de type inattendu : ErreurPretraitement."
+    },
+    {
+      "test": "tests/test_preprocessing.py::test_entrees_non_prises_en_charge[entree2]",
+      "exigences": [
+        "EX21"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TP08 Liste vide ou éléments de type inattendu : ErreurPretraitement."
+    },
+    {
+      "test": "tests/test_regression.py::test_tolerances_definies_avant_comparaison",
+      "exigences": [
+        "EX07"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TN01 Le fichier de tolérances existe, est daté et couvre rappel, F1 et ROC-AUC."
+    },
+    {
+      "test": "tests/test_regression.py::test_modele_courant_identifie",
+      "exigences": [
+        "EX07",
+        "EX16"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TN02 Le modèle versionné est identifié : si son empreinte change, la baseline aussi."
+    },
+    {
+      "test": "tests/test_regression.py::test_sorties_du_pipeline_conformes_au_contrat",
+      "exigences": [
+        "EX04",
+        "EX07"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.2205,
+      "description": "TN03 Sur 500 demandes réelles du jeu de test, chaque sortie respecte le contrat."
+    },
+    {
+      "test": "tests/test_regression.py::test_pas_de_regression_des_metriques[rappel]",
+      "exigences": [
+        "EX07"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TN04 Chaque métrique reste dans la tolérance de baisse et au-dessus de son plancher."
+    },
+    {
+      "test": "tests/test_regression.py::test_pas_de_regression_des_metriques[f1]",
+      "exigences": [
+        "EX07"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TN04 Chaque métrique reste dans la tolérance de baisse et au-dessus de son plancher."
+    },
+    {
+      "test": "tests/test_regression.py::test_pas_de_regression_des_metriques[roc_auc]",
+      "exigences": [
+        "EX07"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TN04 Chaque métrique reste dans la tolérance de baisse et au-dessus de son plancher."
+    },
+    {
+      "test": "tests/test_regression.py::test_pas_de_regression_des_metriques[pr_auc]",
+      "exigences": [
+        "EX07"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TN04 Chaque métrique reste dans la tolérance de baisse et au-dessus de son plancher."
+    },
+    {
+      "test": "tests/test_regression.py::test_pas_de_regression_des_metriques[precision]",
+      "exigences": [
+        "EX07"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TN04 Chaque métrique reste dans la tolérance de baisse et au-dessus de son plancher."
+    },
+    {
+      "test": "tests/test_regression.py::test_rappel_et_f1_detectent_une_baisse_excessive",
+      "exigences": [
+        "EX07"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0008,
+      "description": "TN05 Le comparateur signale une baisse de rappel ou de F1 au-delà de la tolérance."
+    },
+    {
+      "test": "tests/test_regression.py::test_candidate_degradee_rejetee",
+      "exigences": [
+        "EX07"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.2305,
+      "description": "TN06 Un modèle réellement dégradé (étiquettes mélangées) est REJETÉ par le comparateur."
+    },
+    {
+      "test": "tests/test_regression.py::test_predictions_de_reference",
+      "exigences": [
+        "EX07",
+        "EX15"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.006,
+      "description": "TN07 Les 200 probabilités de référence sont reproduites (tolérance selon la version)."
+    },
+    {
+      "test": "tests/test_regression.py::test_coherence_apres_sauvegarde_et_rechargement",
+      "exigences": [
+        "EX15"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0387,
+      "description": "TN08 Modèle sauvegardé puis rechargé : probabilités identiques (≤ 1e-12) sur 4 000 cas."
+    },
+    {
+      "test": "tests/test_regression.py::test_cycle_complet_entrainement_sauvegarde_service",
+      "exigences": [
+        "EX15"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.168,
+      "description": "TN09 Entraîner → sauvegarder (avec SHA-256) → charger via le service → même résultat."
+    },
+    {
+      "test": "tests/test_regression.py::test_entrainement_reproductible",
+      "exigences": [
+        "EX15"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.053,
+      "description": "TN10 Deux entraînements avec la même graine donnent des coefficients identiques."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeur_null[age]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0049,
+      "description": "TR01 Valeur JSON null sur un champ : 422, le champ est identifié."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeur_null[revenu_mensuel]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "TR01 Valeur JSON null sur un champ : 422, le champ est identifié."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeur_null[montant_credit]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR01 Valeur JSON null sur un champ : 422, le champ est identifié."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeur_null[duree_mois]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0036,
+      "description": "TR01 Valeur JSON null sur un champ : 422, le champ est identifié."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeur_null[anciennete_activite]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0043,
+      "description": "TR01 Valeur JSON null sur un champ : 422, le champ est identifié."
+    },
+    {
+      "test": "tests/test_robustness.py::test_plusieurs_champs_manquants_tous_signales",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "TR02 Plusieurs champs absents : toutes les erreurs sont listées en une réponse."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[age-]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0033,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[age- ]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[age-abc]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[age-1e5]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0049,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[age-250 000]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[age-250,000]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0038,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[age-valeur6]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[age-valeur7]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0034,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[age-True]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0037,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[age-False]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0027,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[revenu_mensuel-]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0028,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[revenu_mensuel- ]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[revenu_mensuel-abc]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0026,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[revenu_mensuel-1e5]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0037,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[revenu_mensuel-250 000]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0043,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[revenu_mensuel-250,000]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0033,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[revenu_mensuel-valeur6]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[revenu_mensuel-valeur7]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[revenu_mensuel-True]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0036,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[revenu_mensuel-False]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0036,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[montant_credit-]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[montant_credit- ]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0039,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[montant_credit-abc]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0033,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[montant_credit-1e5]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.004,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[montant_credit-250 000]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0037,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[montant_credit-250,000]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0037,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[montant_credit-valeur6]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0028,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[montant_credit-valeur7]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[montant_credit-True]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0039,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[montant_credit-False]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[duree_mois-]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[duree_mois- ]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[duree_mois-abc]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0028,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[duree_mois-1e5]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[duree_mois-250 000]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[duree_mois-250,000]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[duree_mois-valeur6]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[duree_mois-valeur7]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[duree_mois-True]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0041,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[duree_mois-False]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[anciennete_activite-]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[anciennete_activite- ]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0036,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[anciennete_activite-abc]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0034,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[anciennete_activite-1e5]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.085,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[anciennete_activite-250 000]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[anciennete_activite-250,000]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[anciennete_activite-valeur6]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[anciennete_activite-valeur7]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[anciennete_activite-True]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0034,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_numeriques[anciennete_activite-False]",
+      "exigences": [
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR03 Texte, liste, objet ou booléen dans un champ numérique : 422 (10 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[age-NaN]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[age-Infinity]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0027,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[age--Infinity]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[age-1e400]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0036,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[age--1e400]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0027,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[revenu_mensuel-NaN]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[revenu_mensuel-Infinity]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[revenu_mensuel--Infinity]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[revenu_mensuel-1e400]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.004,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[revenu_mensuel--1e400]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0033,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[montant_credit-NaN]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0033,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[montant_credit-Infinity]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[montant_credit--Infinity]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0028,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[montant_credit-1e400]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0033,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[montant_credit--1e400]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.004,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[duree_mois-NaN]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[duree_mois-Infinity]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[duree_mois--Infinity]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0034,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[duree_mois-1e400]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0041,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[duree_mois--1e400]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0038,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[anciennete_activite-NaN]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[anciennete_activite-Infinity]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0036,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[anciennete_activite--Infinity]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[anciennete_activite-1e400]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0038,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_non_finies_dans_le_json_brut[anciennete_activite--1e400]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0028,
+      "description": "TR04 NaN / Infinity / 1e400 (débordement) envoyés tels quels : 422 (5 × 5 cas)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_aux_bornes_acceptees[{\"age\": 18, \"anciennete_activite\": 0}]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX04",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0044,
+      "description": "TR05 Chaque borne autorisée est acceptée et donne une probabilité valide."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_aux_bornes_acceptees[{\"age\": 75, \"anciennete_activite\": 60}]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX04",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0044,
+      "description": "TR05 Chaque borne autorisée est acceptée et donne une probabilité valide."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_aux_bornes_acceptees[{\"duree_mois\": 1}]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX04",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0051,
+      "description": "TR05 Chaque borne autorisée est acceptée et donne une probabilité valide."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_aux_bornes_acceptees[{\"duree_mois\": 120}]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX04",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0048,
+      "description": "TR05 Chaque borne autorisée est acceptée et donne une probabilité valide."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_aux_bornes_acceptees[{\"revenu_mensuel\": 1}]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX04",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.006,
+      "description": "TR05 Chaque borne autorisée est acceptée et donne une probabilité valide."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_aux_bornes_acceptees[{\"revenu_mensuel\": 100000000.0}]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX04",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0047,
+      "description": "TR05 Chaque borne autorisée est acceptée et donne une probabilité valide."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_aux_bornes_acceptees[{\"montant_credit\": 1}]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX04",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0049,
+      "description": "TR05 Chaque borne autorisée est acceptée et donne une probabilité valide."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_aux_bornes_acceptees[{\"montant_credit\": 500000000.0}]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX04",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0042,
+      "description": "TR05 Chaque borne autorisée est acceptée et donne une probabilité valide."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_aux_bornes_acceptees[{\"anciennete_activite\": 0}]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX04",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.004,
+      "description": "TR05 Chaque borne autorisée est acceptée et donne une probabilité valide."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_aux_bornes_acceptees[{\"revenu_mensuel\": 1e-09}]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX04",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0039,
+      "description": "TR05 Chaque borne autorisée est acceptée et donne une probabilité valide."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_juste_hors_bornes_rejetees[age-17]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX08",
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0033,
+      "description": "TR06 La première valeur au-delà de chaque borne est rejetée."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_juste_hors_bornes_rejetees[age-76]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX08",
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0034,
+      "description": "TR06 La première valeur au-delà de chaque borne est rejetée."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_juste_hors_bornes_rejetees[duree_mois-0]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX08",
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "TR06 La première valeur au-delà de chaque borne est rejetée."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_juste_hors_bornes_rejetees[duree_mois-121]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX08",
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR06 La première valeur au-delà de chaque borne est rejetée."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_juste_hors_bornes_rejetees[revenu_mensuel-0]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX08",
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0028,
+      "description": "TR06 La première valeur au-delà de chaque borne est rejetée."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_juste_hors_bornes_rejetees[revenu_mensuel-100000099.99999999]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX08",
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0035,
+      "description": "TR06 La première valeur au-delà de chaque borne est rejetée."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_juste_hors_bornes_rejetees[montant_credit-0]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX08",
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR06 La première valeur au-delà de chaque borne est rejetée."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_juste_hors_bornes_rejetees[montant_credit-500000000.01]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX08",
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "TR06 La première valeur au-delà de chaque borne est rejetée."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_juste_hors_bornes_rejetees[anciennete_activite--0.01]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX08",
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0032,
+      "description": "TR06 La première valeur au-delà de chaque borne est rejetée."
+    },
+    {
+      "test": "tests/test_robustness.py::test_valeurs_juste_hors_bornes_rejetees[anciennete_activite-60.01]",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX08",
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0034,
+      "description": "TR06 La première valeur au-delà de chaque borne est rejetée."
+    },
+    {
+      "test": "tests/test_robustness.py::test_entree_valide_hors_distribution_signalee[revenu tres faible]",
+      "exigences": [
+        "EX04",
+        "EX14"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.006,
+      "description": "TR07 Entrée valide mais loin des données d'entraînement : 200 + alerte + analyse."
+    },
+    {
+      "test": "tests/test_robustness.py::test_entree_valide_hors_distribution_signalee[revenu tres eleve]",
+      "exigences": [
+        "EX04",
+        "EX14"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0051,
+      "description": "TR07 Entrée valide mais loin des données d'entraînement : 200 + alerte + analyse."
+    },
+    {
+      "test": "tests/test_robustness.py::test_entree_valide_hors_distribution_signalee[montant tres eleve]",
+      "exigences": [
+        "EX04",
+        "EX14"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0064,
+      "description": "TR07 Entrée valide mais loin des données d'entraînement : 200 + alerte + analyse."
+    },
+    {
+      "test": "tests/test_robustness.py::test_entree_valide_hors_distribution_signalee[duree longue]",
+      "exigences": [
+        "EX04",
+        "EX14"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0062,
+      "description": "TR07 Entrée valide mais loin des données d'entraînement : 200 + alerte + analyse."
+    },
+    {
+      "test": "tests/test_robustness.py::test_entree_valide_hors_distribution_signalee[age maximal]",
+      "exigences": [
+        "EX04",
+        "EX14"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0062,
+      "description": "TR07 Entrée valide mais loin des données d'entraînement : 200 + alerte + analyse."
+    },
+    {
+      "test": "tests/test_robustness.py::test_entree_valide_hors_distribution_signalee[anciennete elevee]",
+      "exigences": [
+        "EX04",
+        "EX14"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0066,
+      "description": "TR07 Entrée valide mais loin des données d'entraînement : 200 + alerte + analyse."
+    },
+    {
+      "test": "tests/test_robustness.py::test_entree_valide_hors_distribution_signalee[mensualite > revenu]",
+      "exigences": [
+        "EX04",
+        "EX14"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.006,
+      "description": "TR07 Entrée valide mais loin des données d'entraînement : 200 + alerte + analyse."
+    },
+    {
+      "test": "tests/test_robustness.py::test_entree_typique_sans_alerte",
+      "exigences": [
+        "EX14"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0046,
+      "description": "TR08 Une demande typique ne déclenche aucune alerte (pas de fausse alerte)."
+    },
+    {
+      "test": "tests/test_robustness.py::test_schema_incorrect[liste d'objets]",
+      "exigences": [
+        "EX06",
+        "EX09"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.003,
+      "description": "TR09 Schéma incorrect (imbriqué, renommé, tableau…) : 422, jamais 200 ni 500."
+    },
+    {
+      "test": "tests/test_robustness.py::test_schema_incorrect[objet imbriqu\\xe9]",
+      "exigences": [
+        "EX06",
+        "EX09"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR09 Schéma incorrect (imbriqué, renommé, tableau…) : 422, jamais 200 ni 500."
+    },
+    {
+      "test": "tests/test_robustness.py::test_schema_incorrect[noms en majuscules]",
+      "exigences": [
+        "EX06",
+        "EX09"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0031,
+      "description": "TR09 Schéma incorrect (imbriqué, renommé, tableau…) : 422, jamais 200 ni 500."
+    },
+    {
+      "test": "tests/test_robustness.py::test_schema_incorrect[nom mal orthographi\\xe9]",
+      "exigences": [
+        "EX06",
+        "EX09"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0045,
+      "description": "TR09 Schéma incorrect (imbriqué, renommé, tableau…) : 422, jamais 200 ni 500."
+    },
+    {
+      "test": "tests/test_robustness.py::test_schema_incorrect[valeurs en tableau]",
+      "exigences": [
+        "EX06",
+        "EX09"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR09 Schéma incorrect (imbriqué, renommé, tableau…) : 422, jamais 200 ni 500."
+    },
+    {
+      "test": "tests/test_robustness.py::test_schema_incorrect[objet vide]",
+      "exigences": [
+        "EX06",
+        "EX09"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0028,
+      "description": "TR09 Schéma incorrect (imbriqué, renommé, tableau…) : 422, jamais 200 ni 500."
+    },
+    {
+      "test": "tests/test_robustness.py::test_cles_dupliquees_dans_le_json",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0029,
+      "description": "TR10 Clé dupliquée : le parseur garde la dernière valeur, qui est validée."
+    },
+    {
+      "test": "tests/test_robustness.py::test_encodage_non_utf8",
+      "exigences": [
+        "EX11"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0027,
+      "description": "TR11 Corps non UTF-8 : 400 ou 422, pas d'erreur 500."
+    },
+    {
+      "test": "tests/test_robustness.py::test_determinisme_appels_repetes",
+      "exigences": [
+        "EX15"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0876,
+      "description": "TR12 La même requête envoyée 20 fois donne exactement la même réponse."
+    },
+    {
+      "test": "tests/test_robustness.py::test_ordre_des_champs_sans_effet",
+      "exigences": [
+        "EX15"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0114,
+      "description": "TR13 L'ordre des clés JSON n'influence pas la prédiction."
+    },
+    {
+      "test": "tests/test_robustness.py::test_entier_et_decimal_equivalents",
+      "exigences": [
+        "EX15"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0096,
+      "description": "TR14 revenu 250000 et 250000.0 donnent la même probabilité."
+    },
+    {
+      "test": "tests/test_robustness.py::test_propriete_toute_entree_valide_donne_une_probabilite",
+      "exigences": [
+        "EX04",
+        "EX14"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.8839,
+      "description": "TR15 Propriété : toute entrée valide (150 tirages) → 200 et probabilité dans [0, 1]."
+    },
+    {
+      "test": "tests/test_robustness.py::test_fuzzing_aucune_erreur_500",
+      "exigences": [
+        "EX06",
+        "EX10",
+        "EX12"
+      ],
+      "resultat": "reussi",
+      "duree_s": 2.2171,
+      "description": "TR16 Fuzzing (150 corps aléatoires) : jamais de 500 ; 200 ⇒ probabilité valide."
+    },
+    {
+      "test": "tests/test_robustness.py::test_monotonie_montant",
+      "exigences": [
+        "EX19"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.3214,
+      "description": "TR17 Propriété métier : à profil égal, un montant plus élevé ne baisse pas le risque."
+    },
+    {
+      "test": "tests/test_robustness.py::test_monotonie_montant_domaine_complet",
+      "exigences": [
+        "EX19"
+      ],
+      "resultat": "echec_attendu",
+      "duree_s": 0.0016,
+      "description": "TR17b Anomalie connue : hors domaine réaliste, le risque baisse quand le montant monte."
+    },
+    {
+      "test": "tests/test_robustness.py::test_monotonie_revenu",
+      "exigences": [
+        "EX19"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.3277,
+      "description": "TR18 Propriété métier : à profil égal, un revenu plus élevé ne hausse pas le risque."
+    },
+    {
+      "test": "tests/test_validation.py::test_demande_valide_acceptee",
+      "exigences": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV01 Une demande conforme est acceptée et convertie sans perte."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_aux_bornes_accepte[18]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV02 Les âges situés aux bornes incluses (18 et 75) sont acceptés."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_aux_bornes_accepte[40]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV02 Les âges situés aux bornes incluses (18 et 75) sont acceptés."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_aux_bornes_accepte[75]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV02 Les âges situés aux bornes incluses (18 et 75) sont acceptés."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_hors_limites_rejete[-1]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV03 Un âge hors de [18, 75] est rejeté sur le champ age."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_hors_limites_rejete[0]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV03 Un âge hors de [18, 75] est rejeté sur le champ age."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_hors_limites_rejete[17]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV03 Un âge hors de [18, 75] est rejeté sur le champ age."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_hors_limites_rejete[76]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV03 Un âge hors de [18, 75] est rejeté sur le champ age."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_hors_limites_rejete[150]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV03 Un âge hors de [18, 75] est rejeté sur le champ age."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_non_entier_rejete[35.5]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV04 Un âge décimal, textuel, booléen ou nul est rejeté (typage strict)."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_non_entier_rejete[35.0]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV04 Un âge décimal, textuel, booléen ou nul est rejeté (typage strict)."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_non_entier_rejete[35]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV04 Un âge décimal, textuel, booléen ou nul est rejeté (typage strict)."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_non_entier_rejete[True]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV04 Un âge décimal, textuel, booléen ou nul est rejeté (typage strict)."
+    },
+    {
+      "test": "tests/test_validation.py::test_age_non_entier_rejete[None]",
+      "exigences": [
+        "EX01"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV04 Un âge décimal, textuel, booléen ou nul est rejeté (typage strict)."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_invalide_rejete[0]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV05 Un revenu nul, négatif ou non numérique provoque une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_invalide_rejete[-1]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV05 Un revenu nul, négatif ou non numérique provoque une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_invalide_rejete[-250000]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV05 Un revenu nul, négatif ou non numérique provoque une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_invalide_rejete[250000]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV05 Un revenu nul, négatif ou non numérique provoque une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_invalide_rejete[abc]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV05 Un revenu nul, négatif ou non numérique provoque une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_invalide_rejete[None]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV05 Un revenu nul, négatif ou non numérique provoque une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_invalide_rejete[True]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV05 Un revenu nul, négatif ou non numérique provoque une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_invalide_rejete[revenu7]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV05 Un revenu nul, négatif ou non numérique provoque une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_positif_accepte[1]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV06 Un revenu entier ou décimal strictement positif et <= max est accepté."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_positif_accepte[250000]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0001,
+      "description": "TV06 Un revenu entier ou décimal strictement positif et <= max est accepté."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_positif_accepte[250000.75]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0001,
+      "description": "TV06 Un revenu entier ou décimal strictement positif et <= max est accepté."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_positif_accepte[100000000.0]",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV06 Un revenu entier ou décimal strictement positif et <= max est accepté."
+    },
+    {
+      "test": "tests/test_validation.py::test_revenu_au_dessus_du_maximum_rejete",
+      "exigences": [
+        "EX02"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV07 Un revenu supérieur au plafond documenté est rejeté."
+    },
+    {
+      "test": "tests/test_validation.py::test_duree_valide_acceptee[1]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV08 Les durées entières de 1 à 120 mois sont acceptées."
+    },
+    {
+      "test": "tests/test_validation.py::test_duree_valide_acceptee[12]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV08 Les durées entières de 1 à 120 mois sont acceptées."
+    },
+    {
+      "test": "tests/test_validation.py::test_duree_valide_acceptee[120]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV08 Les durées entières de 1 à 120 mois sont acceptées."
+    },
+    {
+      "test": "tests/test_validation.py::test_duree_invalide_rejetee[0]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV09 Une durée nulle, négative, > 120, décimale ou textuelle est rejetée."
+    },
+    {
+      "test": "tests/test_validation.py::test_duree_invalide_rejetee[-12]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV09 Une durée nulle, négative, > 120, décimale ou textuelle est rejetée."
+    },
+    {
+      "test": "tests/test_validation.py::test_duree_invalide_rejetee[121]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV09 Une durée nulle, négative, > 120, décimale ou textuelle est rejetée."
+    },
+    {
+      "test": "tests/test_validation.py::test_duree_invalide_rejetee[12.5]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV09 Une durée nulle, négative, > 120, décimale ou textuelle est rejetée."
+    },
+    {
+      "test": "tests/test_validation.py::test_duree_invalide_rejetee[12.0]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV09 Une durée nulle, négative, > 120, décimale ou textuelle est rejetée."
+    },
+    {
+      "test": "tests/test_validation.py::test_duree_invalide_rejetee[12]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV09 Une durée nulle, négative, > 120, décimale ou textuelle est rejetée."
+    },
+    {
+      "test": "tests/test_validation.py::test_duree_invalide_rejetee[None]",
+      "exigences": [
+        "EX03"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV09 Une durée nulle, négative, > 120, décimale ou textuelle est rejetée."
+    },
+    {
+      "test": "tests/test_validation.py::test_montant_invalide_rejete[0]",
+      "exigences": [
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV10 Un montant nul, négatif, textuel ou au-delà du plafond est rejeté."
+    },
+    {
+      "test": "tests/test_validation.py::test_montant_invalide_rejete[-1]",
+      "exigences": [
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV10 Un montant nul, négatif, textuel ou au-delà du plafond est rejeté."
+    },
+    {
+      "test": "tests/test_validation.py::test_montant_invalide_rejete[-1000000]",
+      "exigences": [
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV10 Un montant nul, négatif, textuel ou au-delà du plafond est rejeté."
+    },
+    {
+      "test": "tests/test_validation.py::test_montant_invalide_rejete[1000000]",
+      "exigences": [
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0004,
+      "description": "TV10 Un montant nul, négatif, textuel ou au-delà du plafond est rejeté."
+    },
+    {
+      "test": "tests/test_validation.py::test_montant_invalide_rejete[500000001.0]",
+      "exigences": [
+        "EX08"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV10 Un montant nul, négatif, textuel ou au-delà du plafond est rejeté."
+    },
+    {
+      "test": "tests/test_validation.py::test_champ_obligatoire_absent[age]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV11 L'absence de chacun des 5 champs obligatoires est signalée sur ce champ."
+    },
+    {
+      "test": "tests/test_validation.py::test_champ_obligatoire_absent[revenu_mensuel]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV11 L'absence de chacun des 5 champs obligatoires est signalée sur ce champ."
+    },
+    {
+      "test": "tests/test_validation.py::test_champ_obligatoire_absent[montant_credit]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV11 L'absence de chacun des 5 champs obligatoires est signalée sur ce champ."
+    },
+    {
+      "test": "tests/test_validation.py::test_champ_obligatoire_absent[duree_mois]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV11 L'absence de chacun des 5 champs obligatoires est signalée sur ce champ."
+    },
+    {
+      "test": "tests/test_validation.py::test_champ_obligatoire_absent[anciennete_activite]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV11 L'absence de chacun des 5 champs obligatoires est signalée sur ce champ."
+    },
+    {
+      "test": "tests/test_validation.py::test_demande_vide_signale_tous_les_champs",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV12 Un objet vide produit une erreur par champ obligatoire."
+    },
+    {
+      "test": "tests/test_validation.py::test_entree_qui_n_est_pas_un_objet[None]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV13 Une entrée qui n'est pas un objet est rejetée par une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_entree_qui_n_est_pas_un_objet[donnees1]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0001,
+      "description": "TV13 Une entrée qui n'est pas un objet est rejetée par une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_entree_qui_n_est_pas_un_objet[donnees2]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV13 Une entrée qui n'est pas un objet est rejetée par une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_entree_qui_n_est_pas_un_objet[texte]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0001,
+      "description": "TV13 Une entrée qui n'est pas un objet est rejetée par une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_entree_qui_n_est_pas_un_objet[42]",
+      "exigences": [
+        "EX06"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV13 Une entrée qui n'est pas un objet est rejetée par une erreur contrôlée."
+    },
+    {
+      "test": "tests/test_validation.py::test_champ_supplementaire_rejete",
+      "exigences": [
+        "EX09"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV14 Un champ non prévu au contrat est refusé (pas ignoré silencieusement)."
+    },
+    {
+      "test": "tests/test_validation.py::test_valeurs_non_finies_rejetees[nan-revenu_mensuel]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV15 NaN, +inf et -inf sont rejetés sur les champs décimaux."
+    },
+    {
+      "test": "tests/test_validation.py::test_valeurs_non_finies_rejetees[nan-montant_credit]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV15 NaN, +inf et -inf sont rejetés sur les champs décimaux."
+    },
+    {
+      "test": "tests/test_validation.py::test_valeurs_non_finies_rejetees[nan-anciennete_activite]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV15 NaN, +inf et -inf sont rejetés sur les champs décimaux."
+    },
+    {
+      "test": "tests/test_validation.py::test_valeurs_non_finies_rejetees[inf-revenu_mensuel]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV15 NaN, +inf et -inf sont rejetés sur les champs décimaux."
+    },
+    {
+      "test": "tests/test_validation.py::test_valeurs_non_finies_rejetees[inf-montant_credit]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV15 NaN, +inf et -inf sont rejetés sur les champs décimaux."
+    },
+    {
+      "test": "tests/test_validation.py::test_valeurs_non_finies_rejetees[inf-anciennete_activite]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV15 NaN, +inf et -inf sont rejetés sur les champs décimaux."
+    },
+    {
+      "test": "tests/test_validation.py::test_valeurs_non_finies_rejetees[-inf-revenu_mensuel]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV15 NaN, +inf et -inf sont rejetés sur les champs décimaux."
+    },
+    {
+      "test": "tests/test_validation.py::test_valeurs_non_finies_rejetees[-inf-montant_credit]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV15 NaN, +inf et -inf sont rejetés sur les champs décimaux."
+    },
+    {
+      "test": "tests/test_validation.py::test_valeurs_non_finies_rejetees[-inf-anciennete_activite]",
+      "exigences": [
+        "EX10"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV15 NaN, +inf et -inf sont rejetés sur les champs décimaux."
+    },
+    {
+      "test": "tests/test_validation.py::test_anciennete_incompatible_avec_age",
+      "exigences": [
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV16 Une ancienneté supérieure à (âge - 12) ans est rejetée sur ce champ."
+    },
+    {
+      "test": "tests/test_validation.py::test_anciennete_a_la_limite_de_coherence_acceptee",
+      "exigences": [
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV17 Une ancienneté exactement égale à (âge - 12) est acceptée."
+    },
+    {
+      "test": "tests/test_validation.py::test_anciennete_negative_rejetee",
+      "exigences": [
+        "EX13"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV18 Une ancienneté négative est rejetée."
+    },
+    {
+      "test": "tests/test_validation.py::test_message_d_erreur_ne_reflete_pas_la_valeur",
+      "exigences": [
+        "EX12"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0003,
+      "description": "TV19 Le détail d'erreur ne recopie pas la valeur reçue (donnée personnelle)."
+    },
+    {
+      "test": "tests/test_validation.py::test_formatage_erreur_sans_contexte",
+      "exigences": [
+        "EX12"
+      ],
+      "resultat": "reussi",
+      "duree_s": 0.0002,
+      "description": "TV20 Une erreur pydantic sans contexte ou de type inconnu reste formatée proprement."
+    }
+  ],
+  "par_exigence": {
+    "EX01": {
+      "tests": 35,
+      "reussi": 35,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX02": {
+      "tests": 91,
+      "reussi": 91,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX03": {
+      "tests": 84,
+      "reussi": 84,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX04": {
+      "tests": 27,
+      "reussi": 27,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX05": {
+      "tests": 13,
+      "reussi": 13,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX06": {
+      "tests": 31,
+      "reussi": 31,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX07": {
+      "tests": 11,
+      "reussi": 11,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX08": {
+      "tests": 82,
+      "reussi": 82,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX09": {
+      "tests": 8,
+      "reussi": 8,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX10": {
+      "tests": 36,
+      "reussi": 36,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX11": {
+      "tests": 15,
+      "reussi": 15,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX12": {
+      "tests": 15,
+      "reussi": 15,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX13": {
+      "tests": 13,
+      "reussi": 13,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX14": {
+      "tests": 10,
+      "reussi": 10,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX15": {
+      "tests": 8,
+      "reussi": 8,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX16": {
+      "tests": 4,
+      "reussi": 4,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX17": {
+      "tests": 6,
+      "reussi": 6,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX18": {
+      "tests": 2,
+      "reussi": 2,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX19": {
+      "tests": 3,
+      "reussi": 2,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 1
+    },
+    "EX20": {
+      "tests": 8,
+      "reussi": 8,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX21": {
+      "tests": 19,
+      "reussi": 19,
+      "echoue": 0,
+      "ignore": 0,
+      "echec_attendu": 0
+    },
+    "EX22": {
+      "tests": 1,
+      "reussi": 0,
+      "echoue": 0,
+      "ignore": 1,
+      "echec_attendu": 0
+    }
+  }
+}

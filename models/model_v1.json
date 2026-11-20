@@ -1,0 +1,46 @@
+{
+  "nom": "creditrisk-logreg",
+  "version": "1.0.0",
+  "algorithme": "StandardScaler + LogisticRegression",
+  "hyperparametres": {
+    "C": 0.01,
+    "selection_pr_auc_validation": {
+      "0.01": 0.397585,
+      "0.1": 0.396205,
+      "1.0": 0.395769,
+      "10.0": 0.395717
+    }
+  },
+  "date_entrainement": "2026-11-20T07:56:43Z",
+  "sha256": "7c9037960dbb0134e6fb5b7c6260171ec0b2da25f714792251d3041d9f8df3cf",
+  "scikit_learn": "1.9.1",
+  "variables_modele": [
+    "age",
+    "log_revenu",
+    "log_montant",
+    "duree_mois",
+    "anciennete_activite",
+    "log_taux_endettement"
+  ],
+  "metriques_test": {
+    "seuil": 0.2,
+    "n": 4000,
+    "taux_defaut": 0.1385,
+    "rappel": 0.454874,
+    "precision": 0.336449,
+    "f1": 0.3868,
+    "roc_auc": 0.751642,
+    "pr_auc": 0.385021,
+    "matrice_confusion": {
+      "tn": 2949,
+      "fp": 497,
+      "fn": 302,
+      "tp": 252
+    }
+  },
+  "donnees": {
+    "source": "synthétique (scripts/entrainement.py, graine 42)",
+    "avertissement": "Données synthétiques : ne démontrent pas la performance réelle.",
+    "n_entrainement": 12000
+  }
+}

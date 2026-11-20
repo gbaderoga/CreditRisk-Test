@@ -1,0 +1,306 @@
+{
+  "C0 v1.0.0 rechargée (contrôle)": {
+    "description": "Même fichier modèle, rechargé : contrôle du déterminisme.",
+    "metriques": {
+      "seuil": 0.2,
+      "n": 4000,
+      "taux_defaut": 0.1385,
+      "rappel": 0.454874,
+      "precision": 0.336449,
+      "f1": 0.3868,
+      "roc_auc": 0.751642,
+      "pr_auc": 0.385021,
+      "matrice_confusion": {
+        "tn": 2949,
+        "fp": 497,
+        "fn": 302,
+        "tp": 252
+      }
+    },
+    "comparaison": [
+      {
+        "metrique": "rappel",
+        "reference": 0.454874,
+        "candidate": 0.454874,
+        "variation": 0.0,
+        "baisse_max": 0.03,
+        "plancher": 0.4,
+        "statut": "OK"
+      },
+      {
+        "metrique": "f1",
+        "reference": 0.3868,
+        "candidate": 0.3868,
+        "variation": 0.0,
+        "baisse_max": 0.03,
+        "plancher": 0.35,
+        "statut": "OK"
+      },
+      {
+        "metrique": "roc_auc",
+        "reference": 0.751642,
+        "candidate": 0.751642,
+        "variation": 0.0,
+        "baisse_max": 0.02,
+        "plancher": 0.7,
+        "statut": "OK"
+      },
+      {
+        "metrique": "pr_auc",
+        "reference": 0.385021,
+        "candidate": 0.385021,
+        "variation": 0.0,
+        "baisse_max": 0.03,
+        "plancher": 0.33,
+        "statut": "OK"
+      },
+      {
+        "metrique": "precision",
+        "reference": 0.336449,
+        "candidate": 0.336449,
+        "variation": 0.0,
+        "baisse_max": 0.05,
+        "plancher": 0.28,
+        "statut": "OK"
+      }
+    ],
+    "probabilites": {
+      "ecart_max": 4.996975055959751e-13,
+      "ecart_moyen": 2.634860819111795e-13,
+      "regle": {
+        "ecart_max": 1e-09,
+        "ecart_moyen_max": 1e-09
+      },
+      "statut": "OK"
+    },
+    "decision": "ACCEPTEE"
+  },
+  "C1 v1.1.0 réentraînée C=1,0": {
+    "description": "Hyperparamètre C passé de 0,01 à 1,0, mêmes données.",
+    "metriques": {
+      "seuil": 0.2,
+      "n": 4000,
+      "taux_defaut": 0.1385,
+      "rappel": 0.458484,
+      "precision": 0.335535,
+      "f1": 0.38749,
+      "roc_auc": 0.751961,
+      "pr_auc": 0.385601,
+      "matrice_confusion": {
+        "tn": 2943,
+        "fp": 503,
+        "fn": 300,
+        "tp": 254
+      }
+    },
+    "comparaison": [
+      {
+        "metrique": "rappel",
+        "reference": 0.454874,
+        "candidate": 0.458484,
+        "variation": 0.00361,
+        "baisse_max": 0.03,
+        "plancher": 0.4,
+        "statut": "OK"
+      },
+      {
+        "metrique": "f1",
+        "reference": 0.3868,
+        "candidate": 0.38749,
+        "variation": 0.00069,
+        "baisse_max": 0.03,
+        "plancher": 0.35,
+        "statut": "OK"
+      },
+      {
+        "metrique": "roc_auc",
+        "reference": 0.751642,
+        "candidate": 0.751961,
+        "variation": 0.000319,
+        "baisse_max": 0.02,
+        "plancher": 0.7,
+        "statut": "OK"
+      },
+      {
+        "metrique": "pr_auc",
+        "reference": 0.385021,
+        "candidate": 0.385601,
+        "variation": 0.00058,
+        "baisse_max": 0.03,
+        "plancher": 0.33,
+        "statut": "OK"
+      },
+      {
+        "metrique": "precision",
+        "reference": 0.336449,
+        "candidate": 0.335535,
+        "variation": -0.000914,
+        "baisse_max": 0.05,
+        "plancher": 0.28,
+        "statut": "OK"
+      }
+    ],
+    "probabilites": {
+      "ecart_max": 0.06821944722163964,
+      "ecart_moyen": 0.008911737169035656,
+      "regle": {
+        "ecart_max": 0.1,
+        "ecart_moyen_max": 0.02
+      },
+      "statut": "OK"
+    },
+    "decision": "ACCEPTEE"
+  },
+  "C2 v1.2.0 bug de prétraitement": {
+    "description": "Modèle v1 inchangé, mais le code calcule la mensualité sur la durée en années (montant / (mois × 12)).",
+    "metriques": {
+      "seuil": 0.2,
+      "n": 4000,
+      "taux_defaut": 0.1385,
+      "rappel": 0.00722,
+      "precision": 0.25,
+      "f1": 0.014035,
+      "roc_auc": 0.682186,
+      "pr_auc": 0.253669,
+      "matrice_confusion": {
+        "tn": 3434,
+        "fp": 12,
+        "fn": 550,
+        "tp": 4
+      }
+    },
+    "comparaison": [
+      {
+        "metrique": "rappel",
+        "reference": 0.454874,
+        "candidate": 0.00722,
+        "variation": -0.447654,
+        "baisse_max": 0.03,
+        "plancher": 0.4,
+        "statut": "REGRESSION"
+      },
+      {
+        "metrique": "f1",
+        "reference": 0.3868,
+        "candidate": 0.014035,
+        "variation": -0.372765,
+        "baisse_max": 0.03,
+        "plancher": 0.35,
+        "statut": "REGRESSION"
+      },
+      {
+        "metrique": "roc_auc",
+        "reference": 0.751642,
+        "candidate": 0.682186,
+        "variation": -0.069456,
+        "baisse_max": 0.02,
+        "plancher": 0.7,
+        "statut": "REGRESSION"
+      },
+      {
+        "metrique": "pr_auc",
+        "reference": 0.385021,
+        "candidate": 0.253669,
+        "variation": -0.131352,
+        "baisse_max": 0.03,
+        "plancher": 0.33,
+        "statut": "REGRESSION"
+      },
+      {
+        "metrique": "precision",
+        "reference": 0.336449,
+        "candidate": 0.25,
+        "variation": -0.086449,
+        "baisse_max": 0.05,
+        "plancher": 0.28,
+        "statut": "REGRESSION"
+      }
+    ],
+    "probabilites": {
+      "ecart_max": 0.7366595179907166,
+      "ecart_moyen": 0.07844708878303529,
+      "regle": {
+        "ecart_max": 0.1,
+        "ecart_moyen_max": 0.02
+      },
+      "statut": "INVESTIGATION"
+    },
+    "decision": "REJETEE"
+  },
+  "C3 v2.0.0 données d'entraînement dégradées": {
+    "description": "30 % des étiquettes d'entraînement remplacées au hasard (simule un défaut de qualité des données).",
+    "metriques": {
+      "seuil": 0.2,
+      "n": 4000,
+      "taux_defaut": 0.1385,
+      "rappel": 0.933213,
+      "precision": 0.170966,
+      "f1": 0.288988,
+      "roc_auc": 0.751213,
+      "pr_auc": 0.385178,
+      "matrice_confusion": {
+        "tn": 939,
+        "fp": 2507,
+        "fn": 37,
+        "tp": 517
+      }
+    },
+    "comparaison": [
+      {
+        "metrique": "rappel",
+        "reference": 0.454874,
+        "candidate": 0.933213,
+        "variation": 0.478339,
+        "baisse_max": 0.03,
+        "plancher": 0.4,
+        "statut": "OK"
+      },
+      {
+        "metrique": "f1",
+        "reference": 0.3868,
+        "candidate": 0.288988,
+        "variation": -0.097812,
+        "baisse_max": 0.03,
+        "plancher": 0.35,
+        "statut": "REGRESSION"
+      },
+      {
+        "metrique": "roc_auc",
+        "reference": 0.751642,
+        "candidate": 0.751213,
+        "variation": -0.000429,
+        "baisse_max": 0.02,
+        "plancher": 0.7,
+        "statut": "OK"
+      },
+      {
+        "metrique": "pr_auc",
+        "reference": 0.385021,
+        "candidate": 0.385178,
+        "variation": 0.000157,
+        "baisse_max": 0.03,
+        "plancher": 0.33,
+        "statut": "OK"
+      },
+      {
+        "metrique": "precision",
+        "reference": 0.336449,
+        "candidate": 0.170966,
+        "variation": -0.165483,
+        "baisse_max": 0.05,
+        "plancher": 0.28,
+        "statut": "REGRESSION"
+      }
+    ],
+    "probabilites": {
+      "ecart_max": 0.16229800158537822,
+      "ecart_moyen": 0.12018743500834325,
+      "regle": {
+        "ecart_max": 0.1,
+        "ecart_moyen_max": 0.02
+      },
+      "statut": "INVESTIGATION"
+    },
+    "decision": "REJETEE"
+  }
+}
