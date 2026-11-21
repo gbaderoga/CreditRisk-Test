@@ -4,7 +4,7 @@ Qualification d'un système IA d'estimation du risque de défaut de remboursemen
 
 > ⚠️ **Prototype pédagogique entraîné sur des données synthétiques** (`data/README.md`). Les tests démontrent la qualité **technique** du système. Ils ne démontrent pas que le modèle est performant sur de vrais emprunteurs, équitable, ni légalement utilisable pour une décision de crédit.
 
-![tests](https://github.com/<UTILISATEUR>/CreditRisk-Test/actions/workflows/tests.yml/badge.svg)
+![tests](https://github.com/gbaderoga/CreditRisk-Test/actions/workflows/tests.yml/badge.svg)
 
 ## Résultats
 
